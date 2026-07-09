@@ -1,0 +1,66 @@
+.usuarios {
+  padding-block: 100px;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.Cont {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.Cont div {
+  width: 80%;
+  height: 60px;
+  border-radius: 20pt;
+  margin: 20px auto;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  overflow: hidden;
+  transition: 1s;
+}
+.Cont div input {
+  height: 100%;
+  width: 90%;
+  border: none;
+  outline: none;
+  padding-left: 10px;
+  transition: 1s;
+}
+.Cont div:hover {
+  box-shadow: 0 0 32px lightgray;
+}
+.Cont div button {
+  height: 50px;
+  width: 50px;
+  background: linear-gradient(45deg, red, orange);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  font-weight: bold;
+  transition: 1s;
+}
+.Cont div button:hover {
+  box-shadow: 0 0 16px orangered;
+}
+@media (max-width: 460px) {
+  #h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .Cont div {
+    width: 90%;
+  }
+}

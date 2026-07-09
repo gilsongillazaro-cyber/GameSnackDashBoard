@@ -1,0 +1,128 @@
+.Encomendas {
+  width: 100%;
+  min-height: 100%;
+  padding-block: 80px;
+  font-family: "Croissant One", serif;
+}
+.girar.rodar {
+  transform: rotate(-180deg);
+  transition: 0.5s;
+}
+.Encomendas h1:nth-child(2) {
+  width: 100%;
+  text-align: center;
+  text-transform: capitalize;
+  padding: 20px;
+}
+.Encomendas h1:nth-child(2) span {
+  background: linear-gradient(45deg, red, orange);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  text-transform: capitalize;
+}
+.Encomendas ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.Encomendas ul li {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+}
+.Encomendas ul li button {
+  width: 100%;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  height: 30%;
+  justify-content: space-around;
+  transition: 1s;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 14px;
+}
+.PAgo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 30px;
+  height: 100px;
+}
+.PAgo i {
+  background: linear-gradient(45deg, red, orange);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.girar {
+  transform: 0.5s;
+}
+.Ji {
+  font-family: "Roboto", sans-serif;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.Ji p span {
+  background: linear-gradient(45deg, red, orange);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  text-transform: capitalize;
+}
+h2 span {
+  background: linear-gradient(45deg, red, orange);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  text-transform: capitalize;
+}
+.quem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.quem img {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+}
+.baaa {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-around;
+}
+.baaa select {
+  width: 80%;
+}
+.baaa #bu {
+  width: 20%;
+  height: 40px;
+  border-radius: 5pt;
+  padding: 10px;
+  border: none;
+  color: white;
+  background: linear-gradient(45deg, red, orange);
+}
+@media (max-width: 430px) {
+  .Encomendas h1:nth-child(2) {
+    font-size: 23px;
+  }
+  .Encomendas ul li button {
+    font-size: 0.6rem;
+  }
+  .PAgo {
+    font-size: 20px;
+  }
+}

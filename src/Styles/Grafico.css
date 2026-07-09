@@ -1,0 +1,17 @@
+.grafico {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 10%;
+  padding-top: 4%;
+}
+
+@media (max-width: 490px) {
+  .grafico {
+    padding-inline: 1%;
+    font-size: 13px;
+    padding-top: 6%;
+  }
+}

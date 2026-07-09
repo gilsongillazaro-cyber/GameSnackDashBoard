@@ -1,0 +1,132 @@
+.Produtos {
+  padding-block: 80px;
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}
+.Produtos ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(auto, 1fr);
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  gap: 5px;
+  cursor: pointer;
+}
+.Produtos ul li {
+  border-radius: 20pt;
+  padding: 20px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  transition: 1s;
+}
+.Produtos ul li:hover {
+  box-shadow: 0 0 16px black;
+}
+.Produtos ul li h1 {
+  font-size: 1rem;
+  width: 100%;
+  text-transform: capitalize;
+  text-align: center;
+}
+.Produtos ul li img {
+  border-radius: 20pt;
+  object-fit: cover;
+  width: 95%;
+  height: 250px;
+  box-shadow: -1px -1px 5px black;
+}
+.centra {
+  width: 80%;
+  height: 60px;
+  background-color: white;
+  border-radius: 20pt;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  overflow: hidden;
+  transition: 1s;
+}
+.centra:hover {
+  box-shadow: 0 0 32px lightgray;
+}
+.centra input {
+  height: 100%;
+  width: 90%;
+  border: none;
+  outline: none;
+  padding-left: 10px;
+  transition: 1s;
+}
+.centra button {
+  height: 50px;
+  width: 50px;
+  background: linear-gradient(45deg, red, orange);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  transition: 1s;
+}
+.centra button:hover {
+  box-shadow: 0 0 16px orangered;
+}
+.Produtos ul li button {
+  width: 80%;
+  height: 45px;
+  border-radius: 20pt;
+  border: none;
+  color: white;
+  font-weight: bold;
+  background: linear-gradient(45deg, red, orange);
+  cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+  .Produtos ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    gap: 5px;
+  }
+}
+@media (max-width: 850px) {
+  .Produtos ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    gap: 5px;
+  }
+  .centra {
+    width: 90%;
+  }
+}
+@media (max-width: 470px) {
+  .Produtos ul {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    gap: 10px;
+  }
+}

@@ -1,0 +1,8 @@
+.Inicio {
+  padding-block: 80px;
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+}

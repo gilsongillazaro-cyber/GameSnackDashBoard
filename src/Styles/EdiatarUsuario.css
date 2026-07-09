@@ -1,0 +1,184 @@
+.EditarUsuarios {
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.349);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  font-family: "Croissant One", serif;
+}
+.EditarUsuarios .container {
+  width: 60%;
+  height: 400px;
+  border-radius: 20pt;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: white;
+  font-family: "Croissant One", serif;
+}
+.ToP {
+  display: flex;
+  width: 100%;
+  gap: 50px;
+  height: 50%;
+  align-items: center;
+  justify-content: space-around;
+}
+.ToP p a {
+  color: rgba(0, 0, 0, 0.562);
+  text-decoration: none;
+}
+.ToP img {
+  width: 250px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 20pt;
+  padding: 5px;
+}
+.ToP div {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  height: 100%;
+  word-break: break-word;
+  flex-direction: column;
+}
+.ToP div p {
+  font-family: "Fugaz One", sans-serif;
+  width: 100%;
+  display: flex;
+  text-transform: capitalize;
+  gap: 50px;
+  align-items: center;
+  justify-content: flex-start;
+  word-break: break-word;
+}
+.ToP div p strong {
+  font-family: "Croissant One", serif;
+  color: rgba(0, 0, 0, 0.562);
+  word-break: break-word;
+}
+.ToP div button {
+  width: 40%;
+  cursor: pointer;
+  height: 45px;
+  border-radius: 5pt;
+  background-color: red;
+  transition: 1s;
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+.ToP div button:hover {
+  background-color: rgba(255, 0, 0, 0.425);
+}
+.edit {
+  width: 100%;
+  height: 50%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.edit div {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-around;
+}
+.edit div label {
+  width: 80%;
+  height: 100%;
+  background-color: #f0f0f0;
+  border: 1px solid lightgrey;
+  border-radius: 5pt;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-transform: capitalize;
+  padding-left: 10px;
+}
+.edit div label input {
+  display: none;
+}
+.edit div input {
+  width: 80%;
+  height: 100%;
+  background-color: #f0f0f0;
+  border: 1px solid lightgrey;
+  border-radius: 5pt;
+  padding-left: 20px;
+}
+.edit button {
+  height: 100%;
+  border-radius: 20pt;
+  border: none;
+  color: white;
+  font-weight: bold;
+  width: 20%;
+  background: linear-gradient(45deg, red, orange);
+  cursor: pointer;
+  transition: 1s;
+}
+.edit button:hover {
+  opacity: 0.5;
+}
+
+@media (max-width: 1200px) {
+  .EditarUsuarios .container {
+    width: 90%;
+    padding: 10px;
+  }
+}
+@media (max-width: 785px) {
+  .EditarUsuarios .container {
+    width: 100%;
+    height: 95vh;
+    overflow-y: auto;
+  }
+  .EditarUsuarios .container::-webkit-scrollbar {
+    width: 0;
+  }
+  .ToP {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+  }
+  .ToP div {
+    width: 100%;
+    font-size: 10px;
+  }
+  .ToP div button {
+    width: 70%;
+  }
+  .edit div {
+    flex-direction: column;
+    gap: 10px;
+    height: 200px;
+  }
+  .edit div label {
+    width: 100%;
+    height: 100px;
+  }
+  .edit div input {
+    width: 100%;
+    height: 100px;
+  }
+  .edit button {
+    width: 100%;
+  }
+}
