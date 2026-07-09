@@ -58,7 +58,6 @@ function Cadastro() {
       if (response) {
         tex.current.style.display = "block";
         load.current.style.display = "none";
-        console.log(response.data);
         localStorage.setItem("GameSnackToken", response.data.token);
         toast.success(<h4>{response.data.mensagem}</h4>, {
           position: "top-center",

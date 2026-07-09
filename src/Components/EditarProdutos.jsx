@@ -38,7 +38,6 @@ function EditarProduto({ estado, setUser, user, funcao }) {
       funcao();
       estado(false);
     } catch (erro) {
-      console.log(erro);
       toast.error(erro.response.data.mensagem, {
         position: "top-center",
       });
@@ -71,7 +70,9 @@ function EditarProduto({ estado, setUser, user, funcao }) {
       pN.current.style.display = "block";
       loadN.current.style.display = "none";
 
-      toast.error(erro.response.data.mensagem);
+      toast.error(erro.response.data.mensagem, {
+        position: "top-center",
+      });
     }
   }
   async function EditarDescricao() {
@@ -133,7 +134,9 @@ function EditarProduto({ estado, setUser, user, funcao }) {
       pP.current.style.display = "block";
       loadP.current.style.display = "none";
 
-      toast.error(erro.response.data.mensagem);
+      toast.error(erro.response.data.mensagem, {
+        position: "top-center",
+      });
     }
   }
   async function EditarFoto() {
@@ -154,7 +157,9 @@ function EditarProduto({ estado, setUser, user, funcao }) {
       );
 
       setUser(response.data.atualizado);
-      toast.success(response.data.mensagem);
+      toast.success(response.data.mensagem, {
+        position: "top-center",
+      });
       texto.current.innerHTML = `<i class="bi bi-image"></i> trocar foto do produto`;
       texto.current.style.color = "black";
       setFoto("");
@@ -165,7 +170,9 @@ function EditarProduto({ estado, setUser, user, funcao }) {
       pF.current.style.display = "block";
       loadF.current.style.display = "none";
 
-      toast.error(erro.response.data.mensagem);
+      toast.error(erro.response.data.mensagem, {
+        position: "top-center",
+      });
     }
   }
   return (

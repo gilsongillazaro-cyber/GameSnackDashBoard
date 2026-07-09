@@ -31,7 +31,9 @@ function Grafico() {
       );
       SetVendas(response.data.vendas);
     } catch (erro) {
-      toast.error(erro.response.data.mensagem);
+      toast.error(erro.response.data.mensagem, {
+        position: "top-center",
+      });
     }
   }
   useEffect(() => {

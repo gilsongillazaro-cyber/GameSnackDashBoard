@@ -1,4 +1,3 @@
-import foto from "../assets/657743421_122293254608240270_8674492383541561807_n.jpg";
 import "../Styles/EdiatarUsuario.css";
 import api from "../services/api";
 import { useState, useEffect, useRef } from "react";
@@ -138,7 +137,9 @@ function EditarUsuarios({ estado, idUsuario, PegarUsuarios }) {
       pN.current.style.display = "block";
       loadN.current.style.display = "none";
 
-      toast.error(erro.response.data.mensagem);
+      toast.error(erro.response.data.mensagem, {
+        position: "top-center",
+      });
     }
   }
   return (
