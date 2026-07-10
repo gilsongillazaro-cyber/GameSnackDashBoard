@@ -25,11 +25,11 @@ function Adicionar() {
   }
 
   async function Pegar() {
+    const Token = localStorage.getItem("GameSnackToken");
+    if (!Token) {
+      return navigate("/login");
+    }
     try {
-      const Token = localStorage.getItem("GameSnackToken");
-      if (!Token) {
-        return navigate("/login");
-      }
       const response = await api.get(
         `${import.meta.env.VITE_MinhaApi_Rota_Admin}/perfil`,
         {
@@ -41,17 +41,17 @@ function Adicionar() {
       setDados(response.data.perfil);
     } catch (erro) {
       if (
-        erro.response.data.mensagem === "acesso negaddo" ||
-        erro.response.data.mensagem === "token invalido"
+        erro.response.data.mensagem ===
+        "erro ao carregar os seus dados verifique sua ligação a internet"
       ) {
         toast.error(erro.response.data.mensagem, {
           position: "top-center",
         });
-        return navigate("/login");
       } else {
-        toast.warning(erro.response.data.mensagem, {
+        toast.warning("não tens acesso! faça login", {
           position: "top-center",
         });
+        navigate("/login");
       }
     }
   }
@@ -59,12 +59,11 @@ function Adicionar() {
     texto.current.style.display = "none";
     load.current.style.display = "block";
     e.preventDefault();
+    const token = localStorage.getItem("GameSnackToken");
+    if (!token) {
+      return navigate("/login");
+    }
     try {
-      const token = localStorage.getItem("GameSnackToken");
-      if (!token) {
-        return navigate("/login");
-      }
-
       const formData = new FormData();
       formData.append("foto", Fo);
       formData.append("nome", nomeProduto.current.value);

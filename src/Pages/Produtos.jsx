@@ -14,11 +14,11 @@ function Produtos() {
   const [Pesquisados, SetPesquisados] = useState(null);
   const nomeP = useRef();
   async function Pegar() {
+    const Token = localStorage.getItem("GameSnackToken");
+    if (!Token) {
+      return navigate("/login");
+    }
     try {
-      const Token = localStorage.getItem("GameSnackToken");
-      if (!Token) {
-        return navigate("/login");
-      }
       const response = await api.get(
         `${import.meta.env.VITE_MinhaApi_Rota_Admin}/perfil`,
         {
@@ -30,17 +30,17 @@ function Produtos() {
       setDados(response.data.perfil);
     } catch (erro) {
       if (
-        erro.response.data.mensagem === "acesso negaddo" ||
-        erro.response.data.mensagem === "token invalido"
+        erro.response.data.mensagem ===
+        "erro ao carregar os seus dados verifique sua ligação a internet"
       ) {
         toast.error(erro.response.data.mensagem, {
           position: "top-center",
         });
-        return navigate("/login");
       } else {
-        toast.warning(erro.response.data.mensagem, {
+        toast.warning("não tens acesso! faça login", {
           position: "top-center",
         });
+        navigate("/login");
       }
     }
   }
@@ -117,11 +117,32 @@ function Produtos() {
           type="seaerch"
           ref={nomeP}
           placeholder="digite o nome do produto"
+          onKeyUp={(e) => {
+            if (e.key === "Enter") {
+              PesquisarProdutos();
+            }
+          }}
         />
         <button onClick={PesquisarProdutos}>
           <i class="bi bi-search"></i>
         </button>
       </div>
+      <h2 id="h1d">todos os produtos no stoke</h2>
+      <p>
+        quantidade total: <span>{produtos.length}</span>
+      </p>
+      <p>
+        jogos:{" "}
+        <span>
+          {produtos.filter((u) => u.categoriaGeral === "jogos").length}
+        </span>
+      </p>
+      <p>
+        snacks:{" "}
+        <span>
+          {produtos.filter((u) => u.categoriaGeral === "snacks").length}
+        </span>
+      </p>
       <ul>
         {produtos.length > 0 ? (
           lista

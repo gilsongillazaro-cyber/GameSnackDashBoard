@@ -13,7 +13,16 @@
   flex-direction: column;
   gap: 20px;
 }
-.Cont div {
+.Cont #h1 {
+  text-transform: capitalize;
+  font-family: "Poppins", sans-serif;
+}
+.Cont p span {
+  background: linear-gradient(45deg, red, orange);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.Cont .AreaPes {
   width: 80%;
   height: 60px;
   border-radius: 20pt;
@@ -25,7 +34,7 @@
   overflow: hidden;
   transition: 1s;
 }
-.Cont div input {
+.Cont .AreaPes input {
   height: 100%;
   width: 90%;
   border: none;
@@ -33,10 +42,10 @@
   padding-left: 10px;
   transition: 1s;
 }
-.Cont div:hover {
+.Cont .AreaPes:hover {
   box-shadow: 0 0 32px lightgray;
 }
-.Cont div button {
+.Cont .AreaPes button {
   height: 50px;
   width: 50px;
   background: linear-gradient(45deg, red, orange);
@@ -52,7 +61,7 @@
   font-weight: bold;
   transition: 1s;
 }
-.Cont div button:hover {
+.Cont .AreaPes button:hover {
   box-shadow: 0 0 16px orangered;
 }
 @media (max-width: 460px) {

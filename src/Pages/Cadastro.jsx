@@ -14,7 +14,6 @@ function Cadastro() {
   const btnOcul = useRef();
   const load = useRef();
   const tex = useRef();
-
   const nome = useRef();
   const email = useRef();
   const numero = useRef();
@@ -54,23 +53,24 @@ function Cadastro() {
           },
         },
       );
-
-      if (response) {
-        tex.current.style.display = "block";
-        load.current.style.display = "none";
-        localStorage.setItem("GameSnackToken", response.data.token);
-        toast.success(<h4>{response.data.mensagem}</h4>, {
-          position: "top-center",
-        });
-        setFoto("");
-        p.current.style.color = "lightgrey";
-        p.current.innerHTML = "sua foto pra perfil";
-        navigate("/");
-      }
+      localStorage.setItem("GameSnackToken", response.data.token);
+      toast.success(response.data.mensagem, {
+        position: "top-center",
+      });
+      tex.current.style.display = "block";
+      load.current.style.display = "none";
+      setFoto("");
+      nome.current.value = "";
+      email.current.value = "";
+      numero.current.value = "";
+      senha.current.value = "";
+      verificador.current.value = "";
+      p.current.style.color = "lightgrey";
+      p.current.innerHTML = "sua foto pra perfil";
+      navigate("/login");
     } catch (erro) {
       tex.current.style.display = "block";
       load.current.style.display = "none";
-
       if (
         erro.response.data.mensagem ===
         "erro ao acessar o servidor! verifique sua conexão com a internet"
@@ -83,8 +83,6 @@ function Cadastro() {
           position: "top-center",
         });
       }
-
-      setFoto("");
       p.current.style.color = "lightgrey";
       p.current.innerHTML = "sua foto pra perfil";
     }

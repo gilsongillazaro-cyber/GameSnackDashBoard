@@ -37,10 +37,10 @@ function Login() {
       if (response) {
         text.current.style.display = "block";
         load.current.style.display = "none";
-        toast.success(<h4>{response.data.mensagem}</h4>, {
+        localStorage.setItem("GameSnackToken", response.data.token);
+        toast.success(response.data.mensagem, {
           position: "top-center",
         });
-        localStorage.setItem("GameSnackToken", response.data.token);
         navigate("/");
       }
     } catch (erro) {

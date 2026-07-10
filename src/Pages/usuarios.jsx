@@ -15,11 +15,11 @@ function Usuarios() {
   const [idUsuario, setIdUsuario] = useState();
   const [Pesquisado, setPesquisado] = useState(null);
   async function Pegar() {
+    const Token = localStorage.getItem("GameSnackToken");
+    if (!Token) {
+      return navigate("/login");
+    }
     try {
-      const Token = localStorage.getItem("GameSnackToken");
-      if (!Token) {
-        return navigate("/login");
-      }
       const response = await api.get(
         `${import.meta.env.VITE_MinhaApi_Rota_Admin}/perfil`,
         {
@@ -31,17 +31,17 @@ function Usuarios() {
       setDados(response.data.perfil);
     } catch (erro) {
       if (
-        erro.response.data.mensagem === "acesso negaddo" ||
-        erro.response.data.mensagem === "token invalido"
+        erro.response.data.mensagem ===
+        "erro ao carregar os seus dados verifique sua ligação a internet"
       ) {
         toast.error(erro.response.data.mensagem, {
           position: "top-center",
         });
-        return navigate("/login");
       } else {
-        toast.warning(erro.response.data.mensagem, {
+        toast.warning("não tens acesso! faça login", {
           position: "top-center",
         });
+        navigate("/login");
       }
     }
   }
@@ -113,17 +113,25 @@ function Usuarios() {
       )}
       <Header onde={"usuarios"} perfil={dados} />
       <div className="Cont">
-        <div>
+        <div className="AreaPes">
           <input
             type="search"
             ref={nomeP}
             placeholder="digite o nome do usuario"
+            onKeyUp={(e) => {
+              if (e.key === "Enter") {
+                UsuariosPesquisados();
+              }
+            }}
           />
           <button onClick={UsuariosPesquisados}>
             <i class="bi bi-search"></i>
           </button>
         </div>
-        <h1 id="h1">todos os usuarios cadastrados</h1>
+        <h2 id="h1">todos os usuarios cadastrados</h2>
+        <p>
+          quantidade total: <span>{usuarios.length}</span>
+        </p>
         <ListaUsuarios
           estado={SetMonstrar}
           usuarios={usuarios}

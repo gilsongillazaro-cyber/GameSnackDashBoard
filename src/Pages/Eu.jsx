@@ -14,11 +14,11 @@ function Eu() {
   const navigate = useNavigate();
   const [dados, setDados] = useState();
   async function Pegar() {
+    const Token = localStorage.getItem("GameSnackToken");
+    if (!Token) {
+      return navigate("/login");
+    }
     try {
-      const Token = localStorage.getItem("GameSnackToken");
-      if (!Token) {
-        return navigate("/login");
-      }
       const response = await api.get(
         `${import.meta.env.VITE_MinhaApi_Rota_Admin}/perfil`,
         {
@@ -30,25 +30,22 @@ function Eu() {
       setDados(response.data.perfil);
     } catch (erro) {
       if (
-        erro.response.data.mensagem === "acesso negaddo" ||
-        erro.response.data.mensagem === "token invalido"
+        erro.response.data.mensagem ===
+        "erro ao carregar os seus dados verifique sua ligação a internet"
       ) {
         toast.error(erro.response.data.mensagem, {
           position: "top-center",
         });
-        return navigate("/login");
       } else {
-        toast.warning(erro.response.data.mensagem, {
+        toast.warning("não tens acesso! faça login", {
           position: "top-center",
         });
+        navigate("/login");
       }
     }
   }
   useEffect(() => {
     Pegar();
-  }, []);
-  useEffect(() => {
-    console.log(dados);
   }, []);
   return (
     <div className="Eu">
