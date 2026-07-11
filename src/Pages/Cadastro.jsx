@@ -53,10 +53,16 @@ function Cadastro() {
           },
         },
       );
-      localStorage.setItem("GameSnackToken", response.data.token);
       toast.success(response.data.mensagem, {
         position: "top-center",
       });
+      toast.info(
+        "agora pode fazer login com esta conta em qualquer dispositivo, ou se quiser pode terminar a sua sessão e entrar com aconta criada",
+        {
+          position: "top-center",
+          autoClose: 10000,
+        },
+      );
       tex.current.style.display = "block";
       load.current.style.display = "none";
       setFoto("");
@@ -67,7 +73,6 @@ function Cadastro() {
       verificador.current.value = "";
       p.current.style.color = "lightgrey";
       p.current.innerHTML = "sua foto pra perfil";
-      navigate("/login");
     } catch (erro) {
       tex.current.style.display = "block";
       load.current.style.display = "none";
@@ -83,8 +88,6 @@ function Cadastro() {
           position: "top-center",
         });
       }
-      p.current.style.color = "lightgrey";
-      p.current.innerHTML = "sua foto pra perfil";
     }
   }
   return (
@@ -115,13 +118,8 @@ function Cadastro() {
               accept="image/*"
               onChange={(e) => {
                 setFoto(e.target.files[0]);
-                if (e.target.files[0]) {
-                  p.current.innerHTML = `<i class="bi bi-image-fill"></i> foto selecionada`;
-                  p.current.style.color = "blue";
-                } else {
-                  p.current.innerHTML = `<i class="bi bi-image-fill"></i> sua foto pra perfil`;
-                  p.current.style.color = "lightgrey";
-                }
+                p.current.innerHTML = `<i class="bi bi-image-fill"></i> foto selecionada`;
+                p.current.style.color = "blue";
               }}
             />
           </label>

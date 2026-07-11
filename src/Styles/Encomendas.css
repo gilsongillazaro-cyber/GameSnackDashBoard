@@ -44,8 +44,10 @@
   justify-content: space-around;
   transition: 1s;
   text-transform: capitalize;
-  font-weight: bold;
+  border-radius: 10px;
+  color: black;
   font-size: 14px;
+  background-color: lightgrey;
 }
 .PAgo {
   width: 100%;
@@ -102,6 +104,9 @@ h2 span {
   gap: 10px;
   align-items: center;
   justify-content: space-around;
+}
+.estado p {
+  font-weight: bold;
 }
 .baaa select {
   width: 80%;
