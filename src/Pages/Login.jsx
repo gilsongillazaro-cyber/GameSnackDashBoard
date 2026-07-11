@@ -1,10 +1,11 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../Styles/Login.css";
 import api from "../services/api";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 function Login() {
   const Email = useRef();
+  const [abilitado, setabilitado] = useState(false);
   const navigate = useNavigate();
   const Senha = useRef();
   const text = useRef();
@@ -23,6 +24,7 @@ function Login() {
   }
 
   async function Logar(e) {
+    setabilitado(true);
     try {
       e.preventDefault();
       text.current.style.display = "none";
@@ -41,9 +43,11 @@ function Login() {
         toast.success(response.data.mensagem, {
           position: "top-center",
         });
+        setabilitado(false);
         navigate("/");
       }
     } catch (erro) {
+      setabilitado(false);
       if (
         erro.response.data.mensagem ===
           "erro ao se conectar com o servidor! verique sua conexão a internet" ||
@@ -63,6 +67,9 @@ function Login() {
       }
     }
   }
+  useEffect(() => {
+    Email.current.focus();
+  }, []);
   return (
     <div className="Login">
       <form onSubmit={Logar}>
@@ -83,7 +90,7 @@ function Login() {
             <i class="bi bi-eye-slash-fill"></i>
           </button>
         </div>
-        <button>
+        <button disabled={abilitado}>
           <p ref={text}>logar</p>
           <h2 className="load" ref={load}>
             <i class="bi bi-arrow-repeat"></i>

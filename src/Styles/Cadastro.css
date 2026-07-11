@@ -16,6 +16,7 @@
 .load {
   display: none;
   animation: processar 0.8s linear infinite;
+  cursor: no-drop;
 }
 @keyframes processar {
   0% {

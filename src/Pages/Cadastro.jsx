@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "../Styles/Cadastro.css";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import api from "../services/api";
 import { toast } from "react-toastify";
 function Cadastro() {
@@ -9,6 +9,7 @@ function Cadastro() {
   if (!Token) {
     navigate("/login");
   }
+  const [abilitado, setabilitado] = useState(false);
   const senha = useRef();
   const btnMons = useRef();
   const btnOcul = useRef();
@@ -33,6 +34,7 @@ function Cadastro() {
   }
 
   async function Cadastrar(e) {
+    setabilitado(true);
     try {
       e.preventDefault();
       tex.current.style.display = "none";
@@ -73,9 +75,13 @@ function Cadastro() {
       verificador.current.value = "";
       p.current.style.color = "lightgrey";
       p.current.innerHTML = "sua foto pra perfil";
+      nome.current.focus();
+      setabilitado(false);
     } catch (erro) {
+      nome.current.focus();
       tex.current.style.display = "block";
       load.current.style.display = "none";
+      setabilitado(false);
       if (
         erro.response.data.mensagem ===
         "erro ao acessar o servidor! verifique sua conexão com a internet"
@@ -90,6 +96,9 @@ function Cadastro() {
       }
     }
   }
+  useEffect(() => {
+    nome.current.focus();
+  }, []);
   return (
     <div className="Cadastro">
       <form onSubmit={Cadastrar}>
@@ -142,7 +151,7 @@ function Cadastro() {
             ref={verificador}
           />
         </div>
-        <button>
+        <button disabled={abilitado}>
           <p ref={tex}>Cadastra-se</p>{" "}
           <h2 className="load" ref={load}>
             <i class="bi bi-arrow-repeat"></i>
