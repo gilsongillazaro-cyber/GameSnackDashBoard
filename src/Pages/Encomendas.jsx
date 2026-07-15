@@ -7,6 +7,7 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import api from "../services/api";
+import Navegar from "../Components/navegar";
 function Encomendas() {
   const [Mais, setMais] = useState(null);
 
@@ -122,6 +123,7 @@ function Encomendas() {
       <h1>
         todas as encomendas <span>efetuadas</span>
       </h1>
+      <Navegar />
       <ul>
         {encomendas.length > 0 ? (
           encomendas

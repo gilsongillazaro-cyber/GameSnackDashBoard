@@ -9,3 +9,14 @@ body {
   background-color: #f0f0f0;
   font-family: "Croissant One", serif;
 }
+img {
+  background: linear-gradient(90deg, #ddd, #f7f7f7, #ddd);
+  background-size: 500% 100%;
+  animation: processamento 1.5s linear infinite alternate;
+}
+input,
+select,
+textarea {
+  background: white;
+  font-size: 16px;
+}

@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
+import Navegar from "../Components/navegar";
 function Produtos() {
   const [monstra, setMonstra] = useState(false);
   const navigate = useNavigate();
@@ -143,6 +144,7 @@ function Produtos() {
           {produtos.filter((u) => u.categoriaGeral === "snacks").length}
         </span>
       </p>
+      <Navegar />
       <ul>
         {produtos.length > 0 ? (
           lista

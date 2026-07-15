@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 import { toast } from "react-toastify";
+import Navegar from "../Components/navegar";
 function Usuarios() {
   const [monstrar, SetMonstrar] = useState(false);
   const navigate = useNavigate();
@@ -129,6 +130,7 @@ function Usuarios() {
           </button>
         </div>
         <h2 id="h1">todos os usuarios cadastrados</h2>
+        <Navegar />
         <p>
           quantidade total: <span>{usuarios.length}</span>
         </p>

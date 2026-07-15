@@ -47,6 +47,7 @@ aside ul li img {
   object-fit: cover;
   height: 100%;
   margin: 2%;
+  background: none !important;
 }
 aside ul li a {
   width: 100%;
@@ -151,7 +152,9 @@ main {
     height: 15vh;
     z-index: 9999;
     position: fixed;
-    bottom: 0;
+    bottom: -20px;
+    padding: 0;
+
     overflow-x: auto;
   }
   aside ul {

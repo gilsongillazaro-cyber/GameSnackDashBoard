@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 import { toast } from "react-toastify";
+import Navegar from "../Components/navegar";
 function Inicio() {
   const navigate = useNavigate();
   const [dados, setDados] = useState();
@@ -48,6 +49,7 @@ function Inicio() {
     <div className="Inicio">
       <Header onde={"administração"} perfil={dados} />
       <Grafico />
+      <Navegar />
       <Totais />
     </div>
   );

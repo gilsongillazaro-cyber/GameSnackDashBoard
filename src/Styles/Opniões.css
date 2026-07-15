@@ -1,0 +1,169 @@
+.opnioes {
+  padding-block: 80px;
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Croissant One", serif;
+}
+@keyframes processamento {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+.opnioes h2 {
+  width: 100%;
+  padding-block: 5px;
+  text-align: center;
+}
+.opnioes ul {
+  width: 100%;
+  min-height: 100%;
+  padding: 25px 15px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.h3 {
+  grid-column: span 3;
+  grid-row: span 4;
+}
+.opnioes ul li {
+  border-radius: 30pt 0 30pt 0;
+  background: white;
+  box-shadow: 0 0 16px lightslategrey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  justify-content: center;
+  height: auto;
+}
+.primeiro {
+  width: 100%;
+  height: 30%;
+  padding-inline: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+.primeiro img {
+  width: 70px;
+  object-fit: cover;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #ddd, #f7f7f7, #ddd);
+  background-size: 500% 100%;
+  animation: processamento 1.5s linear infinite alternate;
+}
+.primeiro div {
+  width: 80%;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  height: auto;
+  padding-inline: 3px;
+}
+.primeiro div h3,
+.primeiro div p {
+  width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  height: 100%;
+}
+.mensagem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.mensagem p {
+  width: 80%;
+  font-size: 12px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+}
+.mensagem p strong {
+  color: gold;
+  font-size: 14px;
+}
+
+.mensagem button {
+  cursor: pointer;
+  color: red;
+  border: none;
+  background: none;
+  font-size: 25px;
+  transition: 1s;
+}
+.mensagem button:hover {
+  transform: scale(0.8);
+}
+
+.editar {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.editar form {
+  width: 100%;
+  padding-inline: 10px;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: space-around;
+}
+.editar p i {
+  background: linear-gradient(45deg, red, orange);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.editar form input {
+  height: 80%;
+  width: 70%;
+  outline-color: orangered;
+  padding-inline: 5px;
+  border-radius: 10pt;
+  background: white;
+}
+.editar form button {
+  height: 80%;
+  background: linear-gradient(45deg, red, orange);
+  font-weight: bold;
+  border-radius: 20pt;
+  width: 30%;
+  cursor: pointer;
+  border: none;
+  color: white;
+  transition: 1s;
+}
+.editar form button:hover {
+  box-shadow: 0 0 16px orangered;
+}
+@media (max-width: 900px) {
+  .opnioes ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 670px) {
+  .opnioes ul {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (max-width: 270px) {
+  .opnioes ul {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .opnioes ul li {
+    height: 400px;
+  }
+}

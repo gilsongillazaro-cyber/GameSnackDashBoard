@@ -18,7 +18,7 @@
 }
 .Total ul li {
   background-color: white;
-  border-radius: 10pt;
+  border-radius: 5pt;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -28,8 +28,7 @@
   transition: 0.5s linear;
 }
 .Total ul li:hover {
-  box-shadow: 0 0 35px orangered;
-  border: none;
+  border-left: 15px solid orange;
 }
 .Total ul li a {
   width: 100%;

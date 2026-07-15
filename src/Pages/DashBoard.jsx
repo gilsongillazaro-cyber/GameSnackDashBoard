@@ -63,6 +63,15 @@ function DashBoard() {
           <li>
             <NavLink
               className={({ isActive }) => (isActive ? "ativo" : "")}
+              to={"/opnioes"}
+            >
+              <i class="bi bi-chat-quote-fill"></i>
+              <span>opniões dos clientes</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive }) => (isActive ? "ativo" : "")}
               to={"/perfil"}
             >
               <i class="bi bi-person-circle"></i> <span>meu perfil</span>
